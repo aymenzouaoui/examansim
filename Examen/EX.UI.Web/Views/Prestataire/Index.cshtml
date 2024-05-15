@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EX.Core.Domain.Prestataire>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.appreciation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prestataireId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prestataireNom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prestatairePhoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prestataireTel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tarifHoriare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.specialiteFK)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.appreciation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prestataireId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prestataireNom)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Images/" + item.prestatairePhoto)" alt="Photo du client" style="max-width: 100px; max-height: 100px;" />
+
+               @*  @Html.DisplayFor(modelItem => item.prestatairePhoto) *@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prestataireTel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tarifHoriare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialiteFK)
+            </td>
+            <td>
+                    @Html.ActionLink("Prestation", "Details", new {  id=item.prestataireId }) |
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

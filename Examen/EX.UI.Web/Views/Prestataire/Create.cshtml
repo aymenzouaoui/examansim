@@ -1,0 +1,65 @@
+﻿@model EX.Core.Domain.Prestataire
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Prestataire</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @*  <div class="form-group">
+                <label asp-for="appreciation" class="control-label"></label>
+                <input asp-for="appreciation" class="form-control" />
+                <span asp-validation-for="appreciation" class="text-danger"></span>
+            </div> *@
+
+           @*  <div class="form-group">
+                <label asp-for="prestataireId" class="control-label"></label>
+                <input asp-for="prestataireId" class="form-control" />
+                <span asp-validation-for="prestataireId" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="prestataireNom" class="control-label"></label>
+                <input asp-for="prestataireNom" class="form-control" />
+                <span asp-validation-for="prestataireNom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestatairePhoto" class="control-label"></label>
+                <input type="file" name="photoImg" class="form-control" />
+                <span asp-validation-for="prestatairePhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prestataireTel" class="control-label"></label>
+                <input asp-for="prestataireTel" class="form-control" />
+                <span asp-validation-for="prestataireTel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tarifHoriare" class="control-label"></label>
+                <input asp-for="tarifHoriare" class="form-control" />
+                <span asp-validation-for="tarifHoriare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="specialiteFK" class="control-label"></label>
+                <select class="form-control" asp-for=" specialiteFK" asp-items="@ViewBag.P">
+                </select>
+                <span asp-validation-for="specialiteFK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
